@@ -1,0 +1,37 @@
+$colors: $primary, $success, $warning;
+$repeat: 3;
+
+@for $i from 1 through $repeat {
+  .btn:nth-child(#{length($colors)}n + #{$i}) {
+    &:hover,
+    &:active {
+      box-shadow: rgb(255, 255, 255) 4px -4px 0px -6px,
+        rgba(nth($colors, random(length($colors))), 1) 4px -4px;
+    }
+  }
+  .dropdown {
+    transition: all 0.5s;
+    &.show:nth-child(#{length($colors)}n + #{$i}) {
+      box-shadow: rgb(255, 255, 255) 4px -4px 0px -6px,
+        rgba(nth($colors, random(length($colors))), 1) 4px -4px;
+    }
+    &:hover,
+    &:active {
+      box-shadow: rgb(255, 255, 255) 4px -4px 0px -6px,
+        rgba(nth($colors, random(length($colors))), 1) 4px -4px;
+    }
+  }
+}
+
+.btn {
+  transition: ease-in-out 0.5s;
+  @media screen and (max-width: 576px) {
+    padding: 0.5rem 0.5rem !important;
+  }
+
+  i {
+    font-size: 1.5rem;
+    line-height: 0em;
+    vertical-align: top;
+  }
+}

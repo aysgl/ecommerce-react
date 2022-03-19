@@ -1,0 +1,39 @@
+.megamenu {
+  width: 100%;
+  .dropdown {
+    position: static;
+    border: 2px solid $light;
+    animation: all 0.5s;
+    margin: 0px 4px 4px;
+    &:hover {
+      border: 2px solid $dark;
+    }
+    &.show {
+      border: 2px solid $dark;
+    }
+    &:first-child {
+      margin-left: 0px;
+    }
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+  .dropdown-menu {
+    width: 100%;
+    left: 0;
+    margin-top: 4px;
+    .dropdown-item {
+      &:hover {
+        background-color: transparent !important;
+        color: $primary;
+      }
+      .card {
+        background-color: $dark;
+        border: 0px solid transparent;
+        .card-img {
+          opacity: 0.1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.subcategory {
+  &:hover {
+    background-color: transparent !important;
+    color: $primary;
+  }
+  .card {
+    background-color: $dark;
+    border: 0px solid transparent;
+    .card-img {
+      opacity: 0.1;
+    }
+  }
+}

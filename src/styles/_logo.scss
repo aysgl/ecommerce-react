@@ -1,0 +1,91 @@
+.logo {
+  .one {
+    animation: one 9s infinite;
+  }
+  .two {
+    animation: two 9s infinite;
+  }
+  .three {
+    animation: three 9s infinite;
+  }
+}
+@keyframes one {
+  0% {
+    text-shadow: 2px -2px $primary;
+  }
+  50% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 2px -2px $primary;
+  }
+}
+
+@keyframes two {
+  0% {
+    text-shadow: 2px -2px $success;
+  }
+  50% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 2px -2px $success;
+  }
+}
+
+@keyframes three {
+  0% {
+    text-shadow: 2px -2px 1px $warning;
+  }
+  50% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 2px -2px 1px $warning;
+  }
+}
+
+// @keyframes wobbleone {
+//   0% {
+//     margin-top: -50px;
+//     opacity: 0;
+//   }
+//   50% {
+//     margin-top: 0px;
+//     opacity: 1;
+//   }
+//   100% {
+//     margin-top: -50px;
+//     opacity: 0;
+//   }
+// }
+
+// @keyframes wobbletwo {
+//   0% {
+//     margin-top: -60px;
+//     opacity: 0;
+//   }
+//   50% {
+//     margin-top: 0px;
+//     opacity: 1;
+//   }
+//   100% {
+//     margin-top: -60px;
+//     opacity: 0;
+//   }
+// }
+
+// @keyframes wobblethree {
+//   0% {
+//     margin-top: -70px;
+//     opacity: 0;
+//   }
+//   50% {
+//     margin-top: 0px;
+//     opacity: 1;
+//   }
+//   100% {
+//     margin-top: -70px;
+//     opacity: 0;
+//   }
+// }

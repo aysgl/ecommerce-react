@@ -1,0 +1,30 @@
+.container-fluid {
+  padding: 0 !important;
+}
+.icon-shadow {
+  transition: all 0.5s;
+  @include boxShadow($gray-300, 400);
+}
+.bg-light {
+  transition: all 0.5s;
+  &:hover {
+    .icon-shadow {
+      @include boxShadow($gray-300, 50);
+    }
+  }
+}
+
+.user {
+  display: block;
+  text-align: left;
+  white-space: nowrap;
+  width: 60px;
+  height: 60px;
+  line-height: 30px;
+  margin-top: -30px;
+  transition: all 0.5s;
+  &:hover {
+    width: 100% !important;
+    white-space: normal;
+  }
+}

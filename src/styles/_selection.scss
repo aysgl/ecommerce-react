@@ -1,0 +1,13 @@
+// Selection
+@mixin selection {
+  ::-moz-selection {
+    @content;
+  }
+  ::selection {
+    @content;
+  }
+}
+@include selection {
+  color: white;
+  background: rgba($pink, 0.6);
+}

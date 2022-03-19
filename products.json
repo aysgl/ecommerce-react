@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Snipcart Logo Sticker",
+    "id": "delectus-aut-autem",
+    "description": "Show off your Snipcart support with a logo sticker!",
+    "slug": "show-off-your-snipcart-support-with-a-logo-sticker!",
+    "price": "2.00",
+    "image": "/images/sticker-single.jpg"
+  },
+  {
+    "title": "Snipcart Logo Sticker Pack",
+    "id": "quis-ut-nam-facilis-et-officia-qui",
+    "description": "Get a pack of 3 Snipcart logo stickers.",
+    "slug": "Get-a-pack-of-3-snipcart-logo-stickers",
+    "price": "4.00",
+    "image": "/images/sticker-3pack.jpg"
+  }
+]

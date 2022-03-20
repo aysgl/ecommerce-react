@@ -1,15 +1,12 @@
-![React ecommerce tutorial with Snipcart](https://www.datocms-assets.com/48401/1637161493-react-ecommerce-og.png)
+![Candyshop with reactstrap, next, next-auth and snipcart]
+
 # How to Build a React E-Commerce Web App
 
 This is a demo project using [Snipcart](https://snipcart.com) to create an e-commerce store with [Next.js](https://nextjs.org/).
 
-👀 **Read the step-by-step tutorial [here](https://snipcart.com/blog/react-ecommerce-tutorial)**
-
 ## Getting Started
 
 ### Environment File
-
-Create a file called `.env.local` at the root of the project with:
 
 ```
 NEXT_PUBLIC_SNIPCART_API_KEY="[Your Snipcart API Key]"
@@ -25,7 +22,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:4000](http://localhost:4000) with your browser to see the result.
 
 ## Learn More
 

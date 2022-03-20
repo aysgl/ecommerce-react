@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'reactstrap'
 
 export default function BottomFooter() {
     return (
-        <Container fluid className='bg-light'>
+        <Container fluid>
             <div
                 style={{ height: "2px", overflow: "hidden" }}
             >

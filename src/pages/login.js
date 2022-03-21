@@ -1,40 +1,23 @@
-import React from 'react'
-import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap'
+import React from "react";
+import { signIn, useSession } from "next-auth/react";
 
-export default function Login() {
+export default function Page() {
+    const [session, loading] = useSession();
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
     return (
-        <Container className='vh-100'>
-            <Row className='h-100 d-flex align-items-center'>
-                <Col lg={5} md={8} className="mx-auto">
-                    <Form inline className='bg-light rounded p-4'>
-                        <FormGroup floating>
-                            <Input
-                                id="exampleEmail"
-                                name="email"
-                                placeholder="Email"
-                                type="email"
-                            />
-                            <Label for="exampleEmail">
-                                Email
-                            </Label>
-                        </FormGroup>
-                        <FormGroup floating>
-                            <Input
-                                id="examplePassword"
-                                name="password"
-                                placeholder="Password"
-                                type="password"
-                            />
-                            <Label for="examplePassword">
-                                Password
-                            </Label>
-                        </FormGroup>
-                        <Button>
-                            Submit
-                        </Button>
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
-    )
+        <>
+            {session ? (
+                <p>Super secret page!</p>
+            ) : (
+                <p>
+                    <p>You are not permitted to see this page.</p>
+                    <button onClick={signIn}>Sign in</button>
+                </p>
+            )}
+        </>
+    );
 }

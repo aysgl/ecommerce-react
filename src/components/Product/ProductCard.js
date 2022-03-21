@@ -1,8 +1,10 @@
 import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
 import Link from "next/link";
 import { prodata } from "../../data/prodata"
+import { useSession } from "next-auth/react"
 
 export default function ProductCard({ title, id, img, price, discount, desc, slug }) {
+    const { data: session } = useSession()
     const total = (price * discount) / 100
     const amount = price - total;
     // let params = useParams();
@@ -25,6 +27,7 @@ export default function ProductCard({ title, id, img, price, discount, desc, slu
                         </CardBody>
                     </a>
                 </Link>
+                {/* {session ? */}
                 <div className="position-absolute bottom-0 start-50 translate-middle-x w-100 mb-3">
                     <button
                         className="snipcart-add-item btn btn-dark"
@@ -35,6 +38,7 @@ export default function ProductCard({ title, id, img, price, discount, desc, slu
                         data-item-url={`/products/${id}`}
                         data-item-price={price}>Add basket</button>
                 </div>
+                {/* } */}
             </Card >
         </div>
     )

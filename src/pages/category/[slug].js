@@ -52,10 +52,9 @@ export default function SubCategory({ cat }) {
                         </Col>
                     </Row >
                 </div>
-
-                {product.filter(x => x.subcategoryname == cat.name) != 0 ?
+                {product.filter(x => x.categoryname) ?
                     <Row className='row-cols-md-4 g-2'>
-                        {product.filter(x => x.subcategoryname == cat.name).map(pro =>
+                        {product.filter(x => x.categoryname == cat.name).map(pro =>
                             <Col>
                                 <ProductCard
                                     key={pro.id}

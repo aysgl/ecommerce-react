@@ -91,7 +91,6 @@ export default function Header() {
                     <Col xs={2} className='border border-warning border-2'></Col>
                 </Row>
             </div>
-            <LoginTest />
         </>
     )
 }

@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Container } from 'reactstrap'
 import Title from '../Stuff/Title'
 
 export default function Comments({ title, comments }) {
-    const [randomNumber, setrandomNumber] = useState(0)
+    const { colors } = useSelector(state => state.common);
 
-    useEffect(() => {
-
-        setrandomNumber(color[Math.floor((Math.random() * 4))])
-    }, [randomNumber])
-
-    const color = ["primary", "success", "info", "warning"]
     return (
         <Container>
             <Title title={title} />
@@ -18,7 +13,7 @@ export default function Comments({ title, comments }) {
                 {comments.map((i, k) =>
                     <div key={k} className="position-relative my-3 mx-lg-5">
                         <div className="position-absolute top-0 start-0">
-                            <div className={`bg-light rounded-pill d-flex align-items-center text-${color[Math.floor((Math.random() * 4))]} overflow-hidden fs-2 px-3 me-3 user`}>
+                            <div className={`bg-light rounded-pill d-flex align-items-center text-${colors[Math.floor((Math.random() * 3))]} overflow-hidden fs-2 px-3 me-3 user`}>
                                 <span className='icon-shadow'>{i.name}</span>
                             </div>
                         </div>

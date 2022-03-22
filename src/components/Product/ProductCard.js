@@ -14,7 +14,10 @@ export default function ProductCard({ title, id, img, price, discount, desc, slu
                 <Link href={`/products/${id}`}>
                     <a className="text-decoration-none link-dark mb-0 rounded">
                         <CardBody>
-                            <CardTitle style={{ height: "56px" }} className="mb-1 fw-bold">{title}</CardTitle>
+                            {title.length > 60 ?
+                                <CardTitle style={{ height: "56px" }} className="mb-1 fw-bold">{title.slice(0, 60)}...</CardTitle>
+                                : <CardTitle style={{ height: "56px" }} className="mb-1 fw-bold">{title.slice(0, 60)}</CardTitle>
+                            }
                             <CardImg className="img-fluid rounded" src={img} />
 
                             <div className="mt-3" style={{ height: "56px" }}>

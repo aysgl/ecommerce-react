@@ -187,7 +187,7 @@ export const prodata = [
     {
         catId: 3,
         count: 5,
-        categoryname: "home-life-stationery-office",
+        categoryname: "home, life, office",
         subcategoryname: "kitchen",
         discount: null,
         price: 12.00,
@@ -220,7 +220,7 @@ export const prodata = [
     {
         catId: 3,
         count: 5,
-        categoryname: "home-life-stationery-office",
+        categoryname: "home, life, office",
         subcategoryname: "table",
         discount: null,
         price: 12.00,
@@ -296,7 +296,7 @@ export const prodata = [
     {
         catId: 5,
         count: 7,
-        categoryname: "mom-baby-toy",
+        categoryname: "mom, baby, toy",
         subcategoryname: "translation results",
         discount: null,
         price: 128.00,
@@ -334,7 +334,7 @@ export const prodata = [
     {
         catId: 6,
         count: 8,
-        categoryname: "sports-outdoor",
+        categoryname: "sports, outdoor",
         subcategoryname: "sportswear - accessories",
         discount: null,
         price: 128.00,
@@ -372,7 +372,7 @@ export const prodata = [
     {
         catId: 7,
         count: 5,
-        categoryname: "book-music-movie-hobby",
+        categoryname: "book, music, movie, hobby",
         subcategoryname: "music & musical instruments",
         discount: 10,
         price: 128.00,
@@ -410,7 +410,7 @@ export const prodata = [
     {
         catId: 7,
         count: 5,
-        categoryname: "book-music-movie-hobby",
+        categoryname: "book, music, movie, hobby",
         subcategoryname: "books",
         discount: 2,
         price: 128.00,
@@ -448,7 +448,7 @@ export const prodata = [
     {
         catId: 8,
         count: 6,
-        categoryname: "book-music-movie-hobby",
+        categoryname: "book, music, movie, hobby",
         subcategoryname: "film",
         discount: 20,
         price: 24.50,
@@ -486,7 +486,7 @@ export const prodata = [
     {
         catId: 8,
         count: 6,
-        categoryname: "book-music-movie-hobby",
+        categoryname: "book, music, movie, hobby",
         subcategoryname: "music & musical instruments",
         discount: 12,
         price: 24.50,
@@ -524,7 +524,7 @@ export const prodata = [
     {
         catId: 9,
         count: 8,
-        categoryname: "book-music-movie-hobby",
+        categoryname: "book, music, movie, hobby",
         subcategoryname: "books",
         discount: null,
         price: 24.50,
@@ -562,7 +562,7 @@ export const prodata = [
     {
         catId: 9,
         count: 8,
-        categoryname: "book-music-movie-hobby",
+        categoryname: "book, music, movie, hobby",
         subcategoryname: "film",
         discount: 14,
         price: 24.50,

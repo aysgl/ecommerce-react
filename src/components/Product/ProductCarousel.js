@@ -62,7 +62,7 @@ export default function ProductCarousel({ title }) {
             <Slider {...settings} className="h-100">
                 {product.map((pro, i) =>
                     <ProductCard
-                        key={pro.id}
+                        key={i}
                         title={pro.title.substring(0, 40)}
                         desc={pro.desc}
                         price={pro.price}

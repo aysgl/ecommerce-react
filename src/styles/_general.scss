@@ -28,3 +28,11 @@
     white-space: normal;
   }
 }
+
+.was {
+  &:hover {
+    &::before {
+      content: "was a ";
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Button, Card, CardBody, CardImg, CardText, CardTitle, Col, Container, Row } from 'reactstrap'
 import Layout from '../../components/Layout'
@@ -8,9 +8,16 @@ import Seperate from '../../components/Stuff/Seperate'
 import { catdata } from '../../data/catdata'
 import Link from 'next/link'
 
-export default function SubCategory({ cat }) {
+export default function Category({ cat }) {
     const { product } = useSelector(state => state.products);
     const { subcategory } = useSelector(state => state.subcategories);
+    const { colors } = useSelector(state => state.common);
+
+    const [randomColor, setrandomColor] = useState([])
+
+    useEffect(() => {
+        setrandomColor(colors[Math.floor((Math.random() * 3))])
+    }, [cat.id])
 
     return (
         <Layout>
@@ -19,10 +26,10 @@ export default function SubCategory({ cat }) {
             </Head>
             <h6 className='container'>Breadcrumbs gelecek </h6>
             <Container className='category'>
-                <div className='bg-light rounded mb-2'>
+                <div style={{ backgroundColor: `rgba(var(--bs-${randomColor}-rgb), .2)` }} className="rounded mb-2">
                     <Row className='g-0'>
                         <Col md={9}>
-                            <Card className='p-2 h-100'>
+                            <Card className='p-2 h-100 bg-transparent border-0'>
                                 <CardBody className='d-flex align-items-center'>
                                     <div>
                                         <CardTitle className='fs-2 lh-1'>
@@ -30,8 +37,8 @@ export default function SubCategory({ cat }) {
                                         </CardTitle>
 
                                         {subcategory.filter(x => x.catname == cat.name).map((sub, k) =>
-                                            <Link href={`/subcategory/${sub.slug}`}>
-                                                <Button value={cat.name} key={k} size='sm' outline className='me-2 mb-2'>
+                                            <Link key={k} href={`/subcategory/${sub.slug}`}>
+                                                <Button value={cat.name} size='sm' outline className='me-2 mb-2'>
                                                     {sub.name ? sub.name : null}
                                                 </Button>
                                             </Link>
@@ -44,7 +51,7 @@ export default function SubCategory({ cat }) {
                             </Card>
                         </Col>
                         <Col>
-                            <Card className='bg-light'>
+                            <Card className='bg-transparent border-0'>
                                 <CardBody>
                                     <CardImg src={cat.img} alt={cat.id} />
                                 </CardBody>
@@ -54,8 +61,8 @@ export default function SubCategory({ cat }) {
                 </div>
                 {product.filter(x => x.categoryname) ?
                     <Row className='row-cols-md-4 g-2'>
-                        {product.filter(x => x.categoryname == cat.name).map(pro =>
-                            <Col>
+                        {product.filter(x => x.categoryname == cat.name).map((pro, k) =>
+                            <Col key={k}>
                                 <ProductCard
                                     key={pro.id}
                                     title={pro.title}

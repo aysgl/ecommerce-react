@@ -7,12 +7,21 @@ import ProductCard from '../../components/Product/ProductCard'
 import Seperate from '../../components/Stuff/Seperate'
 import { subcatdata } from '../../data/subcatdata'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export default function SubCategory({ sub }) {
     const { product } = useSelector(state => state.products);
     const { subcategory } = useSelector(state => state.subcategories);
+    const { colors } = useSelector(state => state.common);
+
     const router = useRouter();
-    console.log(router.query.slug);
+
+    const [randomColor, setrandomColor] = useState([])
+
+    useEffect(() => {
+        setrandomColor(colors[Math.floor((Math.random() * 3))])
+    }, [sub.id])
+
     return (
         <Layout>
             <Head>
@@ -20,10 +29,10 @@ export default function SubCategory({ sub }) {
             </Head>
             <h6 className='container'>Breadcrumbs gelecek </h6>
             <Container className='category'>
-                <div className='bg-light rounded mb-2'>
+                <div style={{ backgroundColor: `rgba(var(--bs-${randomColor}-rgb), .2)` }} className="rounded mb-2">
                     <Row className='g-0'>
                         <Col md={9}>
-                            <Card className='p-2 h-100'>
+                            <Card className='p-2 h-100 bg-transparent border-0'>
                                 <CardBody className='d-flex align-items-center'>
                                     <div>
                                         <CardTitle className='fs-2 lh-1'>
@@ -44,7 +53,7 @@ export default function SubCategory({ sub }) {
                             </Card>
                         </Col>
                         <Col>
-                            <Card className='bg-light'>
+                            <Card className='bg-transparent border-0'>
                                 <CardBody>
                                     <CardImg src={sub.img} alt={sub.id} />
                                 </CardBody>

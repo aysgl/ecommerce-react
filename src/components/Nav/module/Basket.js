@@ -18,7 +18,7 @@ export default function Basket({ title }) {
         >
             <i className="bi bi-cart-fill me-1"></i>
             <Badge style={{ marginLeft: "-17px", marginTop: "17px", position: "absolute" }} pill color='primary'>
-                <span className="snipcart-items-count"></span>
+                <span className="snipcart-items-count">{count}</span>
             </Badge>
             <span className='ps-2'> {title}</span>
         </Button>

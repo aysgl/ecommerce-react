@@ -14,7 +14,7 @@ export default function BottomFooter() {
                 </Row>
             </div>
             <Container className='py-2'>
-                &copy; candyshop powered by <a href='https://linkedin.com/in/ayşegül-avcu-74300147'>aysgl</a> = [designer, <a href='https://github.com/aysgl'>ui developer</a>]
+                &copy; candyshop powered by <a href='https://linkedin.com/in/ayşegül-avcu-74300147'>aysgl</a> = [<a className='was' href='https://www.behance.net/AysglAvcu'>designer</a>, <a href='https://github.com/aysgl'>ui developer</a>]
             </Container>
         </Container>
     )

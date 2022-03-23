@@ -25,7 +25,6 @@ export default function Product({ pro }) {
             <Head>
                 <title>{pro.title} - Snipcart Store</title>
             </Head>
-            <h6 className='container'>Breadcrumbs gelecek </h6>
             <Container>
                 <div className='bg-light rounded'>
                     <Row className='g-0'>
@@ -65,10 +64,10 @@ export default function Product({ pro }) {
 
                                         <button className="snipcart-add-item btn btn-dark"
                                             data-item-id={pro.id}
-                                            data-item-image={pro.img[0].url}
+                                            data-item-image={pro.img}
                                             data-item-name={pro.title}
                                             data-item-description={pro.desc}
-                                            data-item-url={`/products/${pro.slug}`}
+                                            data-item-url={pro.slug}
                                             data-item-price={pro.price}
                                         >
                                             Add to Cart
@@ -98,7 +97,7 @@ export default function Product({ pro }) {
 export const getStaticPaths = async () => {
     const paths = prodata.map((pro) => ({
         params: {
-            slug: pro.slug,
+            products: pro.slug,
         }
     }))
 
@@ -108,7 +107,7 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-    const productList = prodata.filter((pro) => pro.slug === params.slug)
+    const productList = prodata.filter((pro) => pro.slug === params.products)
     return {
         props: {
             pro: productList[0]

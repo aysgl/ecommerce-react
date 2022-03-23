@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Breadcrumbs from "./Breadcrumbs";
 import Header from "./Header";
 import SubHeader from "./SubHeader";
 
@@ -14,6 +15,7 @@ const Nav = ({ children }) => {
     <nav>
       <Header />
       <SubHeader />
+      <Breadcrumbs />
     </nav>
   );
 };

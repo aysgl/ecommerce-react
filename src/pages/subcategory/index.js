@@ -16,7 +16,6 @@ export default function Category({ catlist }) {
             <Head>
                 <title>Snipcart Store</title>
             </Head>
-            <h6 className='container'>Breadcrumbs gelecek </h6>
             {catlist.map(i =>
                 <Container className=''>
                     <Card className='p-2 h-100 mb-3'>

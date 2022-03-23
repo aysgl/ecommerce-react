@@ -11,7 +11,7 @@ export default function ProductCard({ title, id, img, price, discount, desc, slu
     return (
         <div className="slick-carousel">
             <Card className="text-center h-100 position-relative">
-                <Link href={`/products/${id}`}>
+                <Link href={`/${id}`}>
                     <a className="text-decoration-none link-dark mb-0 rounded">
                         <CardBody>
                             {title.length > 60 ?
@@ -38,7 +38,7 @@ export default function ProductCard({ title, id, img, price, discount, desc, slu
                         data-item-image={img}
                         data-item-name={title}
                         data-item-description={desc}
-                        data-item-url={`/products/${id}`}
+                        data-item-url={id}
                         data-item-price={price}>Add basket</button>
                 </div>
                 {/* } */}

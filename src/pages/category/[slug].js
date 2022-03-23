@@ -24,7 +24,6 @@ export default function Category({ cat }) {
             <Head>
                 <title>{cat.title} - Snipcart Store</title>
             </Head>
-            <h6 className='container'>Breadcrumbs gelecek </h6>
             <Container className='category'>
                 <div style={{ backgroundColor: `rgba(var(--bs-${randomColor}-rgb), .2)` }} className="rounded mb-2">
                     <Row className='g-0'>

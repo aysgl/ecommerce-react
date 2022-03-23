@@ -39,8 +39,8 @@ export default function SubCategory({ sub }) {
                                             {sub.name}
                                         </CardTitle>
                                         {subcategory.filter(x => x.catname === sub.catname).map((sub, k) =>
-                                            <Link href={`/subcategory/${sub.slug}`}>
-                                                <Button outline key={k} size='sm' className={`me-2 mb-2 ${router.query.slug == sub.slug ? "btn-dark text-white" : null}`}>
+                                            <Link key={k} href={`/subcategory/${sub.slug}`}>
+                                                <Button outline size='sm' className={`me-2 mb-2 ${router.query.slug == sub.slug ? "btn-dark text-white" : null}`}>
                                                     {sub.name}
                                                 </Button>
                                             </Link>

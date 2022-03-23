@@ -215,3 +215,8 @@ $card-spacer-x: $spacer/2 !default;
 $card-border-color: rgba($border-color, 1) !default;
 $card-cap-bg: rgba($light, 0.03) !default;
 // scss-docs-end card-variables
+
+// scss-docs-start breadcrumb-variables
+$breadcrumb-margin-bottom: 0.75rem;
+$breadcrumb-divider: quote("/");
+// scss-docs-end breadcrumb-variables

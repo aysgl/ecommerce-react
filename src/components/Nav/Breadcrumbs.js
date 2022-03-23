@@ -20,34 +20,34 @@ export default function Breadcrumbs() {
         href,
         label: path.charAt(0) + path.slice(1)
       };
-
     });
-
     setBreadcrumbs(breadcrumbs);
   }, [router.asPath]);
 
   return (
     <Container>
-      <Breadcrumb>
-        <BreadcrumbItem>
-          <Link href="/">
-            <a>
-              Home
-            </a>
-          </Link>
-        </BreadcrumbItem>
-        {breadcrumbs &&
-          breadcrumbs.map((breadcrumb) => (
-            breadcrumb.href == router.asPath ?
-              <BreadcrumbItem key={breadcrumb.href}>
-                <Link href={breadcrumb.href}>
-                  <a>
-                    {breadcrumb.label.split('-').join(" ")}
-                  </a>
-                </Link>
-              </BreadcrumbItem> : null
-          ))}
-      </Breadcrumb>
+      {breadcrumbs && breadcrumbs.length > 0 &&
+        <Breadcrumb >
+          <BreadcrumbItem>
+            <Link href="/">
+              <a className='link-secondary text-decoration-none'>
+                <i className="bi bi-house"></i>
+              </a>
+            </Link>
+          </BreadcrumbItem>
+          {breadcrumbs &&
+            breadcrumbs.map((breadcrumb) => (
+              breadcrumb.href == router.asPath ?
+                <BreadcrumbItem key={breadcrumb.href}>
+                  <Link href={breadcrumb.href}>
+                    <a className='link-secondary text-decoration-none'>
+                      {breadcrumb.label.split('-').join(" ")}
+                    </a>
+                  </Link>
+                </BreadcrumbItem> : null
+            ))}
+        </Breadcrumb>
+      }
     </Container >
   )
 }

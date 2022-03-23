@@ -7,15 +7,14 @@ import { catdata } from '../../data/catdata'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
+import HeadSeo from '../../components/Nav/HeadSeo'
 
 export default function Category({ catlist }) {
     const router = useRouter()
     const { subcategory } = useSelector(state => state.subcategories);
     return (
         <Layout>
-            <Head>
-                <title>Snipcart Store</title>
-            </Head>
+            <HeadSeo />
             {catlist.map(i =>
                 <Container className=''>
                     <Card className='p-2 h-100 mb-3'>

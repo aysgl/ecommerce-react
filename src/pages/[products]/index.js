@@ -10,6 +10,7 @@ import { prodata } from "../../data/prodata"
 import { comdata } from "../../data/comdata"
 import { useEffect, useState } from 'react';
 import Comments from '../../components/Product/Comments';
+import HeadSeo from '../../components/Nav/HeadSeo';
 
 export default function Product({ pro }) {
     const [comments, setComment] = useState([1])
@@ -22,9 +23,7 @@ export default function Product({ pro }) {
 
     return (
         <Layout>
-            <Head>
-                <title>{pro.title} - Snipcart Store</title>
-            </Head>
+            <HeadSeo />
             <Container>
                 <div className='bg-light rounded'>
                     <Row className='g-0'>

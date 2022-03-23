@@ -6,15 +6,14 @@ import Seperate from '../../components/Stuff/Seperate'
 import { catdata } from '../../data/catdata'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
+import HeadSeo from '../../components/Nav/HeadSeo'
 
 export default function Category({ catlist }) {
     const router = useRouter()
     const { subcategory } = useSelector(state => state.subcategories);
     return (
         <Layout>
-            <Head>
-                <title>Snipcart Store</title>
-            </Head>
+            <HeadSeo />
             {catlist.map(i =>
                 <Container className='category'>
                     <div className='bg-light rounded mb-3'>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Nav, Navbar, NavbarBrand, NavItem, Row, } from 'reactstrap';
-import LoginTest from './LoginTest';
 import Basket from './module/Basket';
 import Login from './module/Login';
 import Searchbar from './module/Searchbar';

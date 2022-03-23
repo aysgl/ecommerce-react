@@ -31,7 +31,7 @@ export default function Carousel() {
                 focusOnSelect={true}
             >
                 {sliders.map(slide =>
-                    <div key={slide.id} className='p-2'>
+                    <div key={slide.id} className='px-2 pt-2'>
                         <img className='img-fluid rounded' src={slide.thumbs}></img>
                     </div>
                 )}

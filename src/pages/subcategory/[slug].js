@@ -8,6 +8,7 @@ import Seperate from '../../components/Stuff/Seperate'
 import { subcatdata } from '../../data/subcatdata'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import HeadSeo from '../../components/Nav/HeadSeo'
 
 export default function SubCategory({ sub }) {
     const { product } = useSelector(state => state.products);
@@ -24,9 +25,7 @@ export default function SubCategory({ sub }) {
 
     return (
         <Layout>
-            <Head>
-                <title>{sub.title} - Snipcart Store</title>
-            </Head>
+            <HeadSeo />
             <Container className='category'>
                 <div style={{ backgroundColor: `rgba(var(--bs-${randomColor}-rgb), .2)` }} className="rounded mb-2">
                     <Row className='g-0'>

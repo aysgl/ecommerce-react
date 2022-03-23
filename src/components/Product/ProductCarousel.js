@@ -58,7 +58,9 @@ export default function ProductCarousel({ title }) {
 
     return (
         <Container className="slick-carousel">
-            <Title title={title} />
+            {title &&
+                <Title title={title} />
+            }
             <Slider {...settings} className="h-100">
                 {product.map((pro, i) =>
                     <ProductCard

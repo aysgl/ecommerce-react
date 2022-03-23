@@ -1,16 +1,16 @@
-import Head from 'next/head';
 import Layout from '../components/Layout';
 import { Container } from "reactstrap";
 import Carousel from '../components/Carousel';
 import ProductCarousel from '../components/Product/ProductCarousel';
 import Seperate from '../components/Stuff/Seperate';
+import HeadSeo from '../components/Nav/HeadSeo';
 
 export default function Home() {
   return (
     <Layout>
-      <Head>
-        <title>candyshop</title>
-      </Head>
+      <HeadSeo title="candyshop is awesome!"
+        description="your description goes here on every page. 
+                  Keep character count between 140 to 160 characters" />
       <Container>
         <Carousel />
         <Seperate />

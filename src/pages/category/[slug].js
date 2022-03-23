@@ -7,6 +7,7 @@ import ProductCard from '../../components/Product/ProductCard'
 import Seperate from '../../components/Stuff/Seperate'
 import { catdata } from '../../data/catdata'
 import Link from 'next/link'
+import HeadSeo from '../../components/Nav/HeadSeo'
 
 export default function Category({ cat }) {
     const { product } = useSelector(state => state.products);
@@ -21,9 +22,7 @@ export default function Category({ cat }) {
 
     return (
         <Layout>
-            <Head>
-                <title>{cat.title} - Snipcart Store</title>
-            </Head>
+            <HeadSeo />
             <Container className='category'>
                 <div style={{ backgroundColor: `rgba(var(--bs-${randomColor}-rgb), .2)` }} className="rounded mb-2">
                     <Row className='g-0'>

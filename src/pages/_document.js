@@ -9,6 +9,8 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://app.snipcart.com" />
           <link rel="preconnect" href="https://cdn.snipcart.com" />
           <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.css" />
+          <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;800&family=Source+Serif+4:wght@400;600;800&display=swap'></link>
+          <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css'></link>
         </Head>
         <body>
           <Main />

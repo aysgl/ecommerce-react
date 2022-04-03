@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 
 const HeadSeo = ({ title, desc, url, img, children }) => {
     const router = useRouter()
-    console.log(router);
+    // console.log(router);
     return (
         <Head>
             <title>{title ? title : router.query.slug || router.query.products}</title>

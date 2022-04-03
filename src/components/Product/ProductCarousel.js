@@ -1,14 +1,17 @@
 import Slider from "react-slick";
 import ProductCard from "./ProductCard"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Container } from "reactstrap";
-import Seperate from "../Stuff/Seperate";
 import Title from "../Stuff/Title";
-import productReducer from "../../store/reducer/productReducer";
 
 export default function ProductCarousel({ title }) {
-    const { product } = useSelector(state => state.products);
-    // console.log("proo", product);
+    const { product } = useSelector(state => state.product);
+    const { category } = useSelector(state => state.category);
+
+    // const product = useSelector(getProduct);
+
+    console.log("cat", category);
+    console.log("pro", product);
 
     const settings = {
         infinite: true,

@@ -2,7 +2,7 @@ import '../styles/globals.scss'
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
 import { Provider } from 'react-redux';
-import store from '../store/configStore';
+import store from '../redux';
 import { SessionProvider } from "next-auth/react"
 
 function useResetHistory() {

@@ -7,7 +7,7 @@ export default function Carousel() {
     const [nav1, setNav1] = useState();
     const [nav2, setNav2] = useState();
 
-    const { sliders } = useSelector(state => state.sliders);
+    const { slider } = useSelector(state => state.slider);
 
     // console.log("sliders", sliders);
 
@@ -18,7 +18,7 @@ export default function Carousel() {
                 arrows={false}
                 fade={true}
                 ref={(slider1) => setNav1(slider1)}>
-                {sliders.map(slide =>
+                {slider.map(slide =>
                     <img key={slide.id} src={slide.url} />
                 )}
             </Slider>
@@ -30,7 +30,7 @@ export default function Carousel() {
                 swipeToSlide={true}
                 focusOnSelect={true}
             >
-                {sliders.map(slide =>
+                {slider.map(slide =>
                     <div key={slide.id} className='px-2 pt-2'>
                         <img className='img-fluid rounded' src={slide.thumbs}></img>
                     </div>

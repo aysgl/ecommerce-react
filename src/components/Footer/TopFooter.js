@@ -4,8 +4,8 @@ import { Card, Col, Container, ListGroup, ListGroupItem, Row } from 'reactstrap'
 import Link from "next/link"
 
 export default function TopFooter() {
-    const { category } = useSelector(state => state.categories);
-    const { subcategory } = useSelector(state => state.subcategories);
+    const { category } = useSelector(state => state.category);
+    const { subcategory } = useSelector(state => state.subcategory);
 
     return (
         <Container>

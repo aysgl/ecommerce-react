@@ -4,7 +4,7 @@ import { Button, Input, InputGroup, InputGroupText, ListGroup, ListGroupItem, Un
 import Link from "next/link"
 
 export default function Searchbar({ width }) {
-    const { product } = useSelector(state => state.products);
+    const { product } = useSelector(state => state.product);
     const [filter, setFilter] = useState("")
     const [isOpen, setIsOpen] = useState(false);
 
@@ -16,11 +16,11 @@ export default function Searchbar({ width }) {
         setIsOpen(false)
     }
 
-    const filtered = product.filter((item) => {
-        return Object.keys(item).some(() =>
-            item.title.toString().toLowerCase().includes(filter.toLocaleLowerCase())
-        );
-    });
+    // const filtered = product.filter((item) => {
+    //     return Object.keys(item).some(() =>
+    //         item.title.toString().toLowerCase().includes(filter.toLocaleLowerCase())
+    //     );
+    // });
 
     return (
         <>

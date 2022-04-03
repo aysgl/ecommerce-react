@@ -4,8 +4,8 @@ import { Card, CardImg, CardImgOverlay, Col, Container, Dropdown, DropdownItem, 
 import { useState } from 'react';
 
 export default function SubHeader() {
-    const { category } = useSelector(state => state.categories);
-    const { subcategory } = useSelector(state => state.subcategories);
+    const { category } = useSelector(state => state.category);
+    const { subcategory } = useSelector(state => state.subcategory);
 
     const [isHovered, setIsHovered] = useState(false);
     const [isClicked, setIsClicked] = useState(false);

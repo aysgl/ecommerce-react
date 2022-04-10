@@ -1,17 +1,17 @@
+import { useEffect } from "react";
 import Slider from "react-slick";
 import ProductCard from "./ProductCard"
 import { useDispatch, useSelector } from "react-redux"
 import { Container } from "reactstrap";
 import Title from "../Stuff/Title";
+import { fetchProducts } from "../../redux/product";
 
 export default function ProductCarousel({ title }) {
-    const { product } = useSelector(state => state.product);
-    const { category } = useSelector(state => state.category);
-
-    // const product = useSelector(getProduct);
-
-    console.log("cat", category);
-    console.log("pro", product);
+    const dispatch = useDispatch();
+    const product = useSelector(state => state.product.items);
+    useEffect(() => {
+        dispatch(fetchProducts());
+    }, [dispatch]);
 
     const settings = {
         infinite: true,
@@ -65,7 +65,7 @@ export default function ProductCarousel({ title }) {
                 <Title title={title} />
             }
             <Slider {...settings} className="h-100">
-                {product.map((pro, i) =>
+                {product && product.map((pro, i) =>
                     <ProductCard
                         key={i}
                         title={pro.title.substring(0, 40)}

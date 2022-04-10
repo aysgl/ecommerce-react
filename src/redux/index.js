@@ -5,12 +5,14 @@ import product from './product'
 import category from './category'
 import subcategory from './subcategory'
 import slider from "./slider"
+import user from "./user"
 
 const reducer = combineReducers({
     product,
     category,
     subcategory,
-    slider
+    slider,
+    user
 })
 
 const store = configureStore({

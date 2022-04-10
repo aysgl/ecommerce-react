@@ -1,31 +1,39 @@
-import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit'
-import { prodata } from '../data/prodata';
-// import products from '../pages/api/products/products';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+
+const initialState = {
+    items: null,
+    status: 'idle',
+    error: null,
+};
+
+export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
+    const res = await fetch('http://localhost:4000/api/products');
+    const products = await res.json();
+
+    return products;
+});
 
 // Slice
 const slice = createSlice({
     name: 'product',
-    initialState: {
-        product: prodata,
+    initialState,
+    reducers: {},
+
+    extraReducers: {
+        [fetchProducts.pending]: (state, action) => {
+            state.status = 'loading';
+        },
+
+        [fetchProducts.fulfilled]: (state, action) => {
+            state.status = 'succeeded';
+            state.items = action.payload;
+        },
+
+        [fetchProducts.rejected]: (state, action) => {
+            state.status = 'failed';
+            state.error = action.error.message;
+        },
     },
-    // reducers: {
-    //     setProduct: (state, action) => {
-    //         return {
-    //             ...state,
-    //             product: action.payload
-    //         }
-    //     },
-    //     getProduct: (state, action) => {
-    //         return {
-    //             ...state,
-    //             product: action.payload
-    //         }
-    //     }
-    // },
 });
-
-// export const getProduct = (state) => state.product;
-
-export const { setProduct, getProduct } = slice.actions
 
 export default slice.reducer

@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
-import { Button, Input, InputGroup, InputGroupText, ListGroup, ListGroupItem, UncontrolledCollapse } from 'reactstrap'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { Input, InputGroup, InputGroupText, ListGroup, ListGroupItem, UncontrolledCollapse } from 'reactstrap'
 import Link from "next/link"
+import { fetchProducts } from '../../../redux/product';
 
 export default function Searchbar({ width }) {
-    const { product } = useSelector(state => state.product);
+    const dispatch = useDispatch();
+    const product = useSelector(state => state.product.items);
+    useEffect(() => {
+        dispatch(fetchProducts())
+    }, [dispatch]);
+
     const [filter, setFilter] = useState("")
     const [isOpen, setIsOpen] = useState(false);
 
@@ -15,12 +21,11 @@ export default function Searchbar({ width }) {
     const onLeaveHandle = () => {
         setIsOpen(false)
     }
-
-    // const filtered = product.filter((item) => {
-    //     return Object.keys(item).some(() =>
-    //         item.title.toString().toLowerCase().includes(filter.toLocaleLowerCase())
-    //     );
-    // });
+    const filtered = product && product.filter((item) => {
+        return Object.keys(item).some(() =>
+            item.title.toString().toLowerCase().includes(filter.toLocaleLowerCase())
+        );
+    });
 
     return (
         <>
@@ -67,7 +72,6 @@ export default function Searchbar({ width }) {
                     </ListGroup>
                 }
             </UncontrolledCollapse>
-
         </>
     )
 }

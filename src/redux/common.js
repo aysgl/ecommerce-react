@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { slidedata } from "../../data/slidedata"
 
 const slice = createSlice({
     name: "common",

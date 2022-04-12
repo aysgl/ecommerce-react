@@ -1,11 +1,22 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Link from "next/link";
 import { Card, CardImg, CardImgOverlay, Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, Row, UncontrolledDropdown, Button } from 'reactstrap';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { fetchCategory } from '../../redux/category';
+import { fetchSubCategory } from '../../redux/subcategory';
 
 export default function SubHeader() {
-    const { category } = useSelector(state => state.category);
-    const { subcategory } = useSelector(state => state.subcategory);
+    const dispatch = useDispatch();
+    const category = useSelector(state => state.category.items);
+    const subcategory = useSelector(state => state.subcategory.items);
+    useEffect(() => {
+        dispatch(fetchCategory())
+        dispatch(fetchSubCategory())
+    }, [dispatch]);
+
+
+    // const { category } = useSelector(state => state.category);
+    // const { subcategory } = useSelector(state => state.subcategory);
 
     const [isHovered, setIsHovered] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
@@ -13,7 +24,7 @@ export default function SubHeader() {
     return (
         <Container>
             <Nav className='megamenu py-1 d-flex nav-justified'>
-                {category.map((cat, k) =>
+                {category && category.map((cat, k) =>
                     <UncontrolledDropdown
                         key={k}
                         inNavbar
@@ -35,7 +46,7 @@ export default function SubHeader() {
                         >
                             <Container className=''>
                                 <Row className={`row-cols-md-${cat.subcategory.length > 5 ? "4" : "3"} row-cols-2 g-1 rounded shadow p-1`}>
-                                    {subcategory.filter(x => x.catname == cat.name).map((sub, k) =>
+                                    {subcategory && subcategory.filter(x => x.catname == cat.name).map((sub, k) =>
                                         <Col key={k}>
                                             <DropdownItem className='m-0 p-0'>
                                                 <Link href={`/subcategory/${sub.slug}`}>

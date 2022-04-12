@@ -1,18 +1,25 @@
-import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Button, Card, CardBody, CardImg, CardText, CardTitle, Col, Container, Row } from 'reactstrap'
 import Layout from '../../components/Layout'
 import ProductCard from '../../components/Product/ProductCard'
 import Seperate from '../../components/Stuff/Seperate'
 import { subcatdata } from '../../data/subcatdata'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 import HeadSeo from '../../components/Nav/HeadSeo'
+import { fetchProducts } from '../../redux/product'
+import { fetchSubCategory } from '../../redux/subcategory'
 
 export default function SubCategory({ sub }) {
-    const { product } = useSelector(state => state.products);
-    const { subcategory } = useSelector(state => state.subcategories);
+    const dispatch = useDispatch();
+    const product = useSelector(state => state.product.items);
+    const subcategory = useSelector(state => state.subcategory.items);
+    useEffect(() => {
+        dispatch(fetchProducts())
+        dispatch(fetchSubCategory())
+    }, [dispatch]);
+
     const { colors } = useSelector(state => state.common);
 
     const router = useRouter();
@@ -36,7 +43,7 @@ export default function SubCategory({ sub }) {
                                         <CardTitle className='fs-2 lh-1'>
                                             {sub.name}
                                         </CardTitle>
-                                        {subcategory.filter(x => x.catname === sub.catname).map((sub, k) =>
+                                        {subcategory && subcategory.filter(x => x.catname === sub.catname).map((sub, k) =>
                                             <Link key={k} href={`/subcategory/${sub.slug}`}>
                                                 <Button outline size='sm' className={`me-2 mb-2 ${router.query.slug == sub.slug ? "btn-dark text-white" : null}`}>
                                                     {sub.name}
@@ -60,7 +67,7 @@ export default function SubCategory({ sub }) {
                     </Row >
                 </div>
 
-                {product.filter(x => x.subcategoryname == sub.name) != 0 ?
+                {product && product.filter(x => x.subcategoryname == sub.name) != 0 ?
                     <Row className='row-cols-md-4 g-2'>
                         {product.filter(x => x.subcategoryname == sub.name).map(pro =>
                             <Col>

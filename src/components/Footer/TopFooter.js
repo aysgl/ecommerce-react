@@ -1,16 +1,23 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-import { Card, Col, Container, ListGroup, ListGroupItem, Row } from 'reactstrap'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { Col, Container, ListGroup, ListGroupItem, Row } from 'reactstrap'
 import Link from "next/link"
+import { fetchCategory } from '../../redux/category';
+import { fetchSubCategory } from '../../redux/subcategory';
 
 export default function TopFooter() {
-    const { category } = useSelector(state => state.category);
-    const { subcategory } = useSelector(state => state.subcategory);
+    const dispatch = useDispatch();
+    const category = useSelector(state => state.category.items);
+    const subcategory = useSelector(state => state.subcategory.items);
+    useEffect(() => {
+        dispatch(fetchCategory())
+        dispatch(fetchSubCategory())
+    }, [dispatch]);
 
     return (
         <Container>
             <Row className="row-cols-lg-4 row-cols-md-3 row-cols-2 g-3">
-                {category.map((i, k) =>
+                {category && category.map((i, k) =>
                     <Col key={k} className='mb-4'>
                         <Link href={`/category/${i.id}`}>
                             <a className='text-dark'>
@@ -19,7 +26,7 @@ export default function TopFooter() {
                         </Link>
 
                         <ListGroup flush>
-                            {subcategory.filter(x => x.catname == i.name).map((sub, k) =>
+                            {subcategory && subcategory.filter(x => x.catname == i.name).map((sub, k) =>
                                 <ListGroupItem
                                     className='px-0 py-1'
                                     key={k}

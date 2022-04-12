@@ -20,7 +20,7 @@ const slice = createSlice({
     reducers: {},
 
     extraReducers: {
-        [fetchProducts.pending]: (state, action) => {
+        [fetchProducts.pending]: (state) => {
             state.status = 'loading';
         },
 

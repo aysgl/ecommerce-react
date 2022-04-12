@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Button, Card, CardBody, CardImg, CardText, CardTitle, Col, Container, Row } from 'reactstrap'
 import Layout from '../../components/Layout'
 import ProductCard from '../../components/Product/ProductCard'
@@ -8,10 +8,18 @@ import Seperate from '../../components/Stuff/Seperate'
 import { catdata } from '../../data/catdata'
 import Link from 'next/link'
 import HeadSeo from '../../components/Nav/HeadSeo'
+import { fetchProducts } from '../../redux/product'
+import { fetchSubCategory } from '../../redux/subcategory'
 
 export default function Category({ cat }) {
-    const { product } = useSelector(state => state.products);
-    const { subcategory } = useSelector(state => state.subcategories);
+    const dispatch = useDispatch();
+    const product = useSelector(state => state.product.items);
+    const subcategory = useSelector(state => state.subcategory.items);
+    useEffect(() => {
+        dispatch(fetchProducts())
+        dispatch(fetchSubCategory())
+    }, [dispatch]);
+
     const { colors } = useSelector(state => state.common);
 
     const [randomColor, setrandomColor] = useState([])
@@ -34,7 +42,7 @@ export default function Category({ cat }) {
                                             {cat.name}
                                         </CardTitle>
 
-                                        {subcategory.filter(x => x.catname == cat.name).map((sub, k) =>
+                                        {subcategory && subcategory.filter(x => x.catname == cat.name).map((sub, k) =>
                                             <Link key={k} href={`/subcategory/${sub.slug}`}>
                                                 <Button value={cat.name} size='sm' outline className='me-2 mb-2'>
                                                     {sub.name ? sub.name : null}
@@ -57,7 +65,7 @@ export default function Category({ cat }) {
                         </Col>
                     </Row >
                 </div>
-                {product.filter(x => x.categoryname) ?
+                {product && product.filter(x => x.categoryname) ?
                     <Row className='row-cols-md-4 g-2'>
                         {product.filter(x => x.categoryname == cat.name).map((pro, k) =>
                             <Col key={k}>

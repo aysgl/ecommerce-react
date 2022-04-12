@@ -21,9 +21,9 @@ export default function ProductCard({ title, id, img, price, discount, desc, slu
                             <CardImg className="img-fluid rounded" src={img} />
 
                             <div className="mt-3" style={{ height: "56px" }}>
-                                <CardText className="mb-0 fw-bold fs-5 lh-1">{price}</CardText>
+                                <CardText className="mb-0 fw-bold fs-5 lh-1">{price}$</CardText>
                                 {discount != 0 &&
-                                    <CardText className="text-decoration-line-through mb-0">{amount.toFixed(2)}
+                                    <CardText className="text-decoration-line-through mb-0">{amount.toFixed(2)}$
                                     </CardText>
                                 }
                             </div>

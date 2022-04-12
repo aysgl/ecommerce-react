@@ -12,13 +12,13 @@ export default function Comments({ title, comments }) {
                 {comments.map((i, k) =>
                     <div key={k} className="position-relative my-3 mx-lg-5">
                         <div className="position-absolute top-0 start-0">
-                            <div className={`bg-light rounded-pill d-flex align-items-center text-${colors[Math.floor((Math.random() * 3))]} overflow-hidden fs-2 px-3 me-3 user`}>
+                            <div className={`bg-light rounded-pill d-flex align-items-center text-${colors[Math.floor((Math.random() * 3))]} overflow-hidden fs-2 px-3 me-3 user text-truncate`}>
                                 <span className='icon-shadow'>{i.name}</span>
                             </div>
                         </div>
-                        <div className='mt-4'>
-                            <div className='rounded bg-light p-2 ms-md-5'>
-                                <p className='mb-0'>
+                        <div className='mt-md-4 mt-5'>
+                            <div className='rounded bg-light p-2 ms-md-5 mb-4'>
+                                <p className='mb-0 mt-md-0 mt-4'>
                                     {i.body}
                                 </p>
                                 <span className='small text-muted'>{i.datetime}</span>

@@ -34,7 +34,7 @@ export default function Category({ cat }) {
             <Container className='category'>
                 <div style={{ backgroundColor: `rgba(var(--bs-${randomColor}-rgb), .2)` }} className="rounded mb-2">
                     <Row className='g-0'>
-                        <Col md={9}>
+                        <Col md={8}>
                             <Card className='p-2 h-100 bg-transparent border-0'>
                                 <CardBody className='d-flex align-items-center'>
                                     <div>
@@ -56,7 +56,7 @@ export default function Category({ cat }) {
                                 </CardBody>
                             </Card>
                         </Col>
-                        <Col>
+                        <Col className="d-none d-md-block">
                             <Card className='bg-transparent border-0'>
                                 <CardBody>
                                     <CardImg src={cat.img} alt={cat.id} />
@@ -66,7 +66,7 @@ export default function Category({ cat }) {
                     </Row >
                 </div>
                 {product && product.filter(x => x.categoryname) ?
-                    <Row className='row-cols-md-4 g-2'>
+                    <Row className='row-cols-lg-4 row-cols-md-3 row-cols-2 g-2'>
                         {product.filter(x => x.categoryname == cat.name).map((pro, k) =>
                             <Col key={k}>
                                 <ProductCard

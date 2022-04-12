@@ -27,7 +27,7 @@ export default function Product({ pro }) {
             <Container>
                 <div className='bg-light rounded'>
                     <Row className='g-0'>
-                        <Col md={6} className="p-5 text-center">
+                        <Col md={6} className="p-md-5 p-2 text-center">
                             <ProductGallery images={pro.images} />
                         </Col>
                         <Col md={6}>

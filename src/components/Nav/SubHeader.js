@@ -14,10 +14,6 @@ export default function SubHeader() {
         dispatch(fetchSubCategory())
     }, [dispatch]);
 
-
-    // const { category } = useSelector(state => state.category);
-    // const { subcategory } = useSelector(state => state.subcategory);
-
     const [isHovered, setIsHovered] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
 
@@ -29,8 +25,6 @@ export default function SubHeader() {
                         key={k}
                         inNavbar
                         className='rounded text-center nav-item'
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
                         onToggle={() => setIsClicked(!isClicked)}
                     >
                         <DropdownToggle

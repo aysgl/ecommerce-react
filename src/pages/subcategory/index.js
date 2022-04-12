@@ -1,17 +1,20 @@
-import Head from 'next/head'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Card, CardBody, CardText, CardTitle, Col, Container, Row, CardImg, Button, CardHeader, CardImgOverlay } from 'reactstrap'
 import Layout from '../../components/Layout'
 import Seperate from '../../components/Stuff/Seperate'
 import { catdata } from '../../data/catdata'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import HeadSeo from '../../components/Nav/HeadSeo'
+import { fetchSubCategory } from '../../redux/subcategory'
 
 export default function Category({ catlist }) {
-    const router = useRouter()
-    const { subcategory } = useSelector(state => state.subcategories);
+    const dispatch = useDispatch();
+    const subcategory = useSelector(state => state.subcategory.items);
+    useEffect(() => {
+        dispatch(fetchSubCategory())
+    }, [dispatch]);
+
     return (
         <Layout>
             <HeadSeo />
@@ -23,7 +26,7 @@ export default function Category({ catlist }) {
                                 {i.name}
                             </CardTitle>
                             <Row className='row-cols-md-5 row-cols-2 g-2 text-center'>
-                                {subcategory.filter(x => x.catname == i.name).map((sub, k) =>
+                                {subcategory && subcategory.filter(x => x.catname == i.name).map((sub, k) =>
                                     <Col>
                                         <Link href={`subcategory/${sub.slug}`}>
                                             <a key={k} className="subcategory">

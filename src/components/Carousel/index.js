@@ -14,6 +14,42 @@ export default function Carousel() {
         dispatch(fetchSliders())
     }, [dispatch]);
 
+    const settings = {
+        infinite: true,
+        speed: 1000,
+        autoplaySpeed: 1500,
+        autoplay: false,
+        dots: false,
+        slidesToShow: 8,
+        slidesToScroll: 8,
+        swipeToSlide: true,
+        focusOnSelect: true,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 8,
+                    slidesToScroll: 8,
+                    infinite: true,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 6,
+                    slidesToScroll: 6,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                }
+            }
+        ]
+    }
+
     return (
         <Container fluid className='slider position-relative'>
             {slider &&
@@ -29,14 +65,12 @@ export default function Carousel() {
                     </Slider>
 
                     <Slider
+                        {...settings}
                         asNavFor={nav1}
                         ref={(slider2) => setNav2(slider2)}
-                        slidesToShow={8}
-                        swipeToSlide={true}
-                        focusOnSelect={true}
                     >
                         {slider.map(slide =>
-                            <div key={slide.id} className='px-2 pt-2'>
+                            <div key={slide.id} className='px-md-2 pt-md-2 px-1 pt-1'>
                                 <img className='img-fluid rounded' src={slide.thumbs}></img>
                             </div>
                         )}

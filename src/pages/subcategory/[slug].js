@@ -36,7 +36,7 @@ export default function SubCategory({ sub }) {
             <Container className='category'>
                 <div style={{ backgroundColor: `rgba(var(--bs-${randomColor}-rgb), .2)` }} className="rounded mb-2">
                     <Row className='g-0'>
-                        <Col md={9}>
+                        <Col md={8}>
                             <Card className='p-2 h-100 bg-transparent border-0'>
                                 <CardBody className='d-flex align-items-center'>
                                     <div>
@@ -57,7 +57,7 @@ export default function SubCategory({ sub }) {
                                 </CardBody>
                             </Card>
                         </Col>
-                        <Col>
+                        <Col className="d-none d-md-block">
                             <Card className='bg-transparent border-0'>
                                 <CardBody>
                                     <CardImg src={sub.img} alt={sub.id} />
@@ -68,7 +68,7 @@ export default function SubCategory({ sub }) {
                 </div>
 
                 {product && product.filter(x => x.subcategoryname == sub.name) != 0 ?
-                    <Row className='row-cols-md-4 g-2'>
+                    <Row className='row-cols-lg-4 row-cols-md-3 row-cols-2 g-2'>
                         {product.filter(x => x.subcategoryname == sub.name).map(pro =>
                             <Col>
                                 <ProductCard

@@ -41,7 +41,7 @@ export default function ProductCarousel({ title }) {
                 }
             },
             {
-                breakpoint: 576,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
@@ -53,31 +53,33 @@ export default function ProductCarousel({ title }) {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    dots: true
+                    dots: false
                 }
             }
         ]
     }
 
     return (
-        <Container className="slick-carousel">
+        <Container className="slick-carousel px-0">
             {title &&
                 <Title title={title} />
             }
-            <Slider {...settings} className="h-100">
-                {product && product.map((pro, i) =>
-                    <ProductCard
-                        key={i}
-                        title={pro.title.substring(0, 40)}
-                        desc={pro.desc}
-                        price={pro.price}
-                        id={pro.id}
-                        slug={pro.slug}
-                        discount={pro.discount}
-                        img={pro.img}
-                    />
-                )}
-            </Slider>
+            {product &&
+                <Slider {...settings} className="h-100">
+                    {product.map((pro, i) =>
+                        <ProductCard
+                            key={i}
+                            title={pro.title.substring(0, 40)}
+                            desc={pro.desc}
+                            price={pro.price}
+                            id={pro.id}
+                            slug={pro.slug}
+                            discount={pro.discount}
+                            img={pro.img}
+                        />
+                    )}
+                </Slider>
+            }
         </Container>
     );
 }

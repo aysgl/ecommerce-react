@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const fetchCategory = createAsyncThunk('categories/fetchCategory', async () => {
-    const res = await fetch('http://localhost:4000/api/category');
+    const res = await fetch(`${window.location.origin.toString()}/api/category`);
     const categories = await res.json();
 
     return categories;

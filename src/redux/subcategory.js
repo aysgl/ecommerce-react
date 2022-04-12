@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const fetchSubCategory = createAsyncThunk('subcategories/fetchCategory', async () => {
-    const res = await fetch('http://localhost:4000/api/subcategory');
+    const res = await fetch(`${window.location.origin.toString()}/api/subcategory`);
     const subcategories = await res.json();
 
     return subcategories;

@@ -4,6 +4,7 @@ import Carousel from '../components/Carousel';
 import ProductCarousel from '../components/Product/ProductCarousel';
 import Seperate from '../components/Stuff/Seperate';
 import HeadSeo from '../components/Nav/HeadSeo';
+import LoginTest from '../components/Nav/LoginTest';
 
 export default function Home() {
   return (

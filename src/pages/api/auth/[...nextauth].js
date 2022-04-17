@@ -50,6 +50,7 @@ export default NextAuth({
     theme: {
         colorScheme: "light",
     },
+    debug: true
     // callbacks: {
     //     async jwt({ token }) {
     //         token.userRole = "admin"

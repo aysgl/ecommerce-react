@@ -14,10 +14,11 @@ export default function Login({ title }) {
                         color="secondary"
                         outline
                         className='me-1'
-                        onClick={(e) => {
-                            e.preventDefault()
-                            signIn('credentials', { redirect: false, callbackUrl: `${window.location.origin}/` })
-                        }}
+                        // onClick={(e) => {
+                        //     e.preventDefault()
+                        //     signIn('credentials', { redirect: false, callbackUrl: `${window.location.origin}/` })
+                        // }}
+                        onClick={() => signIn()}
                     ><i className="bi bi-person-fill me-1"></i>{title}
                     </Button>
                 </Link> :
@@ -26,10 +27,11 @@ export default function Login({ title }) {
                         color="secondary"
                         outline
                         className='me-1'
-                        onClick={(e) => {
-                            e.preventDefault()
-                            signOut({ redirect: false, callbackUrl: `${window.location.origin}/` })
-                        }}
+                        // onClick={(e) => {
+                        //     e.preventDefault()
+                        //     signOut({ redirect: false, callbackUrl: `${window.location.origin}/` })
+                        // }}
+                        onClick={() => signOut()}
                     >
                         <i className="bi bi-person-fill me-1"></i>
                         welcome <strong>{session.user.name}</strong>

@@ -33,10 +33,6 @@ export default NextAuth({
             clientId: process.env.FACEBOOK_ID,
             clientSecret: process.env.FACEBOOK_SECRET,
         }),
-        GithubProvider({
-            clientId: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET,
-        }),
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
@@ -54,12 +50,12 @@ export default NextAuth({
     theme: {
         colorScheme: "light",
     },
-    callbacks: {
-        async jwt({ token }) {
-            token.userRole = "admin"
-            return token
-        },
-    },
+    // callbacks: {
+    //     async jwt({ token }) {
+    //         token.userRole = "admin"
+    //         return token
+    //     },
+    // },
 })
 
 // import NextAuth from "next-auth"

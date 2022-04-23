@@ -13,13 +13,17 @@ export default function Login({ title }) {
                     <Button
                         color="secondary"
                         outline
-                        className='me-1'
+                        className='me-md-0 me-1'
                         // onClick={(e) => {
                         //     e.preventDefault()
                         //     signIn('credentials', { redirect: false, callbackUrl: `${window.location.origin}/` })
                         // }}
                         onClick={() => signIn()}
-                    ><i className="bi bi-person-fill me-1"></i>{title}
+                    >
+                        <span className='d-flex align-items-center'>
+                        <i className="bi bi-person-fill me-md-0 me-1"></i>
+                    {title}
+                    </span>
                     </Button>
                 </Link> :
                 <Link href="/api/auth/signout">

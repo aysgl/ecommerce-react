@@ -14,8 +14,17 @@ export default function SubHeader() {
         dispatch(fetchSubCategory())
     }, [dispatch]);
 
-    const [isHovered, setIsHovered] = useState(false);
-    const [isClicked, setIsClicked] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpen = () => {
+        document.body.style.overflow = 'hidden';
+        setIsOpen(true)  
+    }
+
+    const handleClose = () => {
+        document.body.style.overflow = 'unset';
+        setIsOpen(false)  
+    }
 
     return (
         <Container>
@@ -25,21 +34,23 @@ export default function SubHeader() {
                         key={k}
                         inNavbar
                         className='rounded text-center nav-item'
-                        onToggle={() => setIsClicked(!isClicked)}
+                        onMouseEnter={handleOpen}
+                        onMouseLeave={handleClose}
                     >
                         <DropdownToggle
                             caret
                             nav
                             className='text-secondary'
-
+                            key={k}
+                            isOpen={isOpen}
                         >
                             {cat.name}
                         </DropdownToggle>
                         <DropdownMenu
                             className='border-0 px-0'
                         >
-                            <Container className=''>
-                                <Row className={`row-cols-md-${cat.subcategory.length > 5 ? "4" : "3"} row-cols-2 g-1 rounded shadow p-1`}>
+                            <Container>
+                                <Row className={`row-cols-md-${cat.subcategory.length > 5 ? "4" : "3"} row-cols-2 g-1`}>
                                     {subcategory && subcategory.filter(x => x.catname == cat.name).map((sub, k) =>
                                         <Col key={k}>
                                             <DropdownItem className='m-0 p-0'>

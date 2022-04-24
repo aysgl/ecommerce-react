@@ -17,8 +17,8 @@ export default function Basket({ title }) {
             className='snipcart-checkout snipcart-summary'
         >
             <span className='d-flex align-items-center'>
-                <i className="bi bi-cart-fill me-1"></i>
-                <Badge style={{ marginLeft: "12px", marginTop: "17px", position: "absolute" }} pill color='primary'>
+                <i className="bi bi-cart-fill"></i>
+                <Badge style={{ marginLeft: "14px", marginTop: "17px", position: "absolute" }} pill color='primary'>
                     <span className="snipcart-items-count">{count}</span>
                 </Badge>
                 <span className='ps-2'> {title}</span>

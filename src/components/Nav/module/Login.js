@@ -13,7 +13,7 @@ export default function Login({ title }) {
                     <Button
                         color="secondary"
                         outline
-                        className='me-md-0 me-1'
+                        className='me-lg-0 me-1'
                         // onClick={(e) => {
                         //     e.preventDefault()
                         //     signIn('credentials', { redirect: false, callbackUrl: `${window.location.origin}/` })
@@ -21,9 +21,9 @@ export default function Login({ title }) {
                         onClick={() => signIn()}
                     >
                         <span className='d-flex align-items-center'>
-                        <i className="bi bi-person-fill me-md-0 me-1"></i>
-                    {title}
-                    </span>
+                            <i className="bi bi-person-fill"></i>
+                            {title}
+                        </span>
                     </Button>
                 </Link> :
                 <Link href="/api/auth/signout">
